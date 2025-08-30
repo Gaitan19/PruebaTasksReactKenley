@@ -1,10 +1,10 @@
 // Página de gestión de tareas
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../../hooks/redux';
-import { addTask, removeTask } from '../../features/tasks/tasksSlice';
-import TaskModal from '../../components/UI/TaskModal/TaskModal';
-import './TasksPage.scss';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../../hooks/redux";
+import { addTask, removeTask } from "../../features/tasks/tasksSlice";
+import TaskModal from "../../components/UI/TaskModal/TaskModal";
+import "./TasksPage.scss";
 
 const TasksPage: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +22,25 @@ const TasksPage: React.FC = () => {
     dispatch(removeTask(id));
   };
 
+  const renderTasks = () =>
+    tasks.map((task) => (
+      <div key={task.id} className="task-item">
+        <div className="task-item__content">
+          <p className="task-item__description">{task.description}</p>
+          <span className="task-item__date">
+            Creada: {new Date(task.createdAt).toLocaleDateString("es-ES")}
+          </span>
+        </div>
+        <button
+          className="task-item__remove-button"
+          onClick={() => handleRemoveTask(task.id)}
+          aria-label="Eliminar tarea"
+        >
+          ×
+        </button>
+      </div>
+    ));
+
   return (
     <div className="container">
       <div className="tasks-page">
@@ -30,7 +49,7 @@ const TasksPage: React.FC = () => {
             ← Volver al inicio
           </Link>
           <h1 className="tasks-page__title">Gestión de Tareas</h1>
-          <button 
+          <button
             className="tasks-page__add-button"
             onClick={() => setShowModal(true)}
           >
@@ -44,30 +63,12 @@ const TasksPage: React.FC = () => {
               <p>No hay tareas creadas. ¡Agrega tu primera tarea!</p>
             </div>
           ) : (
-            <div className="tasks-page__list">
-              {tasks.map((task) => (
-                <div key={task.id} className="task-item">
-                  <div className="task-item__content">
-                    <p className="task-item__description">{task.description}</p>
-                    <span className="task-item__date">
-                      Creada: {new Date(task.createdAt).toLocaleDateString('es-ES')}
-                    </span>
-                  </div>
-                  <button 
-                    className="task-item__remove-button"
-                    onClick={() => handleRemoveTask(task.id)}
-                    aria-label="Eliminar tarea"
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
-            </div>
+            <div className="tasks-page__list">{renderTasks()}</div>
           )}
         </div>
 
         {/* Modal para agregar nueva tarea */}
-        <TaskModal 
+        <TaskModal
           show={showModal}
           onClose={() => setShowModal(false)}
           onAddTask={handleAddTask}
