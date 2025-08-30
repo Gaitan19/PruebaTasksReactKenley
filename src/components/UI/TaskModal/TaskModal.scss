@@ -1,67 +1,67 @@
 // Estilos para el modal de tareas
 .task-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  display: flex;
   align-items: center;
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
   padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
 
   &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   &__content {
-    position: relative;
+    animation: modalEnter 0.3s ease-out;
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 500px;
     max-height: 90vh;
+    max-width: 500px;
     overflow-y: auto;
-    animation: modalEnter 0.3s ease-out;
+    position: relative;
+    width: 100%;
   }
 
   &__header {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 1.5rem 0 1.5rem;
     border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
   }
 
   &__title {
-    margin: 0;
+    color: #2c3e50;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2c3e50;
+    margin: 0;
   }
 
   &__close-button {
+    align-items: center;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    border-radius: 50%;
     color: #6c757d;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
     display: flex;
-    align-items: center;
+    font-size: 1.5rem;
+    height: 30px;
     justify-content: center;
-    border-radius: 50%;
     transition: all 0.3s ease;
+    width: 30px;
 
     &:hover {
       background: #f8f9fa;
@@ -78,26 +78,26 @@
   }
 
   &__label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
     color: #495057;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
   }
 
   &__textarea {
-    width: 100%;
-    padding: 0.75rem;
     border: 2px solid #e9ecef;
     border-radius: 8px;
     font-family: inherit;
     font-size: 1rem;
+    padding: 0.75rem;
     resize: vertical;
     transition: border-color 0.3s ease;
+    width: 100%;
 
     &:focus {
-      outline: none;
       border-color: #3498db;
       box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      outline: none;
     }
 
     &--error {
@@ -115,10 +115,10 @@
   }
 
   &__error {
-    display: block;
-    margin-top: 0.5rem;
     color: #e74c3c;
+    display: block;
     font-size: 0.875rem;
+    margin-top: 0.5rem;
   }
 
   &__actions {
@@ -132,13 +132,13 @@
   }
 
   &__button {
-    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
 
     &--cancel {
       background: #6c757d;
