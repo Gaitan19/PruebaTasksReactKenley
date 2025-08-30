@@ -1,0 +1,106 @@
+// Estilos para la página principal
+.main-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  text-align: center;
+
+  &__header {
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__subtitle {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+
+  &__button {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: inherit;
+    display: block;
+    min-width: 280px;
+    padding: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      color: inherit;
+      text-decoration: none;
+      transform: translateY(-4px);
+    }
+
+    &--tasks {
+      border-color: #3498db;
+
+      &:hover {
+        background: #f8f9fa;
+        border-color: #2980b9;
+      }
+    }
+
+    &--listing {
+      border-color: #2ecc71;
+
+      &:hover {
+        background: #f8f9fa;
+        border-color: #27ae60;
+      }
+    }
+
+    @media (max-width: 768px) {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+
+  &__button-content {
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}

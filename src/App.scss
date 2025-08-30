@@ -1,0 +1,60 @@
+// Estilos principales de la aplicación - Tema claro
+body {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Reseteo de estilos para elementos comunes
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #2980b9;
+    text-decoration: none;
+  }
+}
+
+// Sobrescribir estilos de Bootstrap para tema claro
+.container {
+  max-width: 1200px;
+}
+
+// Asegurar que las imágenes sean responsivas
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+// Estilos para botones base
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// Utilidades responsivas
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
