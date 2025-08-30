@@ -42,6 +42,12 @@ const renderWithRouter = (component: React.ReactElement) => {
 // Mock de console.error para evitar ruido en las pruebas
 const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+
+jest.mock('../../config/api', () => ({
+  API_URL: 'https://6172cfe5110a740017222e2b.mockapi.io/elements',
+}));
+
+
 describe('ListingPage', () => {
   beforeEach(() => {
     jest.clearAllMocks();

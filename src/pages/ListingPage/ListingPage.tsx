@@ -4,20 +4,23 @@ import { Link } from 'react-router-dom';
 import type { ListingElement } from '../../types/listing';
 import LoadingSpinner from '../../components/UI/LoadingSpinner/LoadingSpinner';
 import './ListingPage.scss';
+import { API_URL } from '../../config/api';
 
 const ListingPage: React.FC = () => {
   const [elements, setElements] = useState<ListingElement[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  
+
   // Función para obtener datos de la API
   const fetchElements = async () => {
     try {
       setLoading(true);
       setError(null);
-      
-      const response = await fetch('https://6172cfe5110a740017222e2b.mockapi.io/elements');
-      
+
+      const response = await fetch(API_URL);
+
       if (!response.ok) {
         throw new Error(`Error ${response.status}: ${response.statusText}`);
       }
